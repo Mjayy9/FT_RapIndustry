@@ -10,11 +10,11 @@ export default defineComponent({
     <v-container class="navigationBar opacity-80">
       <v-app-bar>
         <v-tabs>
-          <v-tab to="/">Home</v-tab>
-          <v-tab to="/">Programs</v-tab>
-          <v-tab to="/">CZ/SK Rap</v-tab>
-          <v-tab to="/">Store</v-tab>
-          <v-tab to="/">Contact</v-tab>
+          <v-tab to="/home">Home</v-tab>
+          <v-tab to="/programs">Programs</v-tab>
+          <v-tab to="/rappers_and_producers">Rappers and Producers</v-tab>
+          <v-tab to="/store">Store</v-tab>
+          <v-tab to="/contact">Contact</v-tab>
         </v-tabs>
       </v-app-bar>
     </v-container>

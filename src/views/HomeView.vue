@@ -1,7 +1,3 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
   <v-container class="d-flex h-full justify-center">
     <v-card class="w-33" image="FL Studio Logo.png">

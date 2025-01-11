@@ -1,6 +1,12 @@
-#app{
+body{
+    background: #ee0979;
+    background: -webkit-linear-gradient(to left, #ff6a00, #ee0979);
+    background: linear-gradient(to left, #ff6a00, #ee0979);
     font-family: Arial, Helvetica, sans-serif;
-    background: #ff6a00;
+}
+
+.v-application {
+    background: transparent !important;
 }
 
 .card-text{
@@ -33,6 +39,74 @@
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.ableton{
+    width: 400px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.workspaces {
+    max-width: 150px;
+    border-radius: 15px;
+}
+
+.link-hover {
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.link-hover:hover {
+    color: green;
+}
+
+.link-hover_2 {
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.link-hover_2:hover {
+    color: orange;
+}
+
+.link-hover_3 {
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.link-hover_3:hover {
+    color: blue;
+}
+
+.link-hover_4 {
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.link-hover_4:hover {
+    color: red;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.w-48 {
+    width: 48%;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.mr-16 {
+    margin-right: 16px;
 }
 
 
