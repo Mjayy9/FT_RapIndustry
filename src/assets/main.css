@@ -53,42 +53,6 @@ body{
     border-radius: 15px;
 }
 
-.link-hover {
-    color: inherit;
-    transition: color 0.3s ease;
-}
-
-.link-hover:hover {
-    color: green;
-}
-
-.link-hover_2 {
-    color: inherit;
-    transition: color 0.3s ease;
-}
-
-.link-hover_2:hover {
-    color: orange;
-}
-
-.link-hover_3 {
-    color: inherit;
-    transition: color 0.3s ease;
-}
-
-.link-hover_3:hover {
-    color: blue;
-}
-
-.link-hover_4 {
-    color: inherit;
-    transition: color 0.3s ease;
-}
-
-.link-hover_4:hover {
-    color: red;
-}
-
 .d-flex {
     display: flex;
 }

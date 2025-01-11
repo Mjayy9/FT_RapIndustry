@@ -44,16 +44,17 @@
   <v-container v-for="(artist, index) in artistsSlovakia" :key="index" class="d-flex h-full justify-center">
     <v-card class="w-75">
       <v-card-title class="titles font-weight-bold">{{ artist.name }}</v-card-title>
-      <a :href="artist.musicProfileUrl" target="_blank" rel="noopener noreferrer" class="text-decoration-underline ml-3 font-weight-bold link-hover_3">Apple Music Profile</a>
+      <v-btn :href="artist.musicProfileAppleMusic" target="_blank" rel="noopener noreferrer" prepend-icon="mdi-apple" class="text-decoration-none ml-3 font-weight-bold" :color="artist.color_1" outlined> Apple Music Profile </v-btn>
+      <v-btn :href="artist.musicProfileSpotify" target="_blank" rel="noopener noreferrer" prepend-icon="mdi-spotify" class="text-decoration-none ml-3 font-weight-bold" :color="artist.color_2" outlined> Spotify Profile </v-btn>
       <v-card-text>{{ artist.description }}</v-card-text>
       <v-card-subtitle class="font-weight-bold d-flex justify-center">{{ artist.name }} Albums/Tracks</v-card-subtitle>
       <v-expansion-panels>
         <v-expansion-panel v-for="(album, index) in artist.albums" :key="index" :title="album.title" :text="album.producedBy" bg-color="#ee0979" class="font-weight-bold"></v-expansion-panel>
       </v-expansion-panels>
-      <v-img :src="artist.image" class="workspaces d-flex align-center justify-center" style="max-width: 400px; border-radius: 15px; margin: 10px auto auto;"></v-img>
+      <v-img :src="artist.image" class="workspaces d-flex align-center justify-center elevation-24" style="max-width: 400px; border-radius: 15px; margin: 10px auto auto;"></v-img>
       <v-card-subtitle class="font-weight-bold d-flex justify-center">{{ artist.name }} Photo</v-card-subtitle>
       <v-row class="d-flex mb-4 ml-4">
-        <v-btn @click="playAudio(artist.audioUrl)" :ripple="true" elevation="24" rounded="lg" color="#ee0979" class="mx-2">PLAY TRACK</v-btn>
+        <v-btn @click="playAudio(artist.audioUrl)" :ripple="true" elevation="24" rounded="lg" color="#ff004d" class="mx-2">PLAY TRACK</v-btn>
         <v-btn @click="stopAudio" color="#ff6a00" :ripple="true" elevation="24" rounded="lg" class="mx-2">STOP TRACK</v-btn>
       </v-row>
     </v-card>
@@ -102,16 +103,17 @@
   <v-container v-for="(artist, index) in artistsCzech" :key="index" class="d-flex h-full justify-center">
     <v-card class="w-75">
       <v-card-title class="titles font-weight-bold">{{ artist.name }}</v-card-title>
-      <a :href="artist.musicProfileUrl" target="_blank" rel="noopener noreferrer" class="text-decoration-underline ml-3 font-weight-bold link-hover_3"> Apple Music Profile </a>
+      <v-btn :href="artist.musicProfileAppleMusic" target="_blank" rel="noopener noreferrer" prepend-icon="mdi-apple" class="text-decoration-none ml-3 font-weight-bold" :color="artist.color_1" outlined> Apple Music Profile </v-btn>
+      <v-btn :href="artist.musicProfileSpotify" target="_blank" rel="noopener noreferrer" prepend-icon="mdi-spotify" class="text-decoration-none ml-3 font-weight-bold" :color="artist.color_2" outlined> Spotify Profile </v-btn>
       <v-card-text>{{ artist.description }}</v-card-text>
       <v-card-subtitle class="font-weight-bold d-flex justify-center">{{ artist.name }} Albums/Tracks</v-card-subtitle>
       <v-expansion-panels>
         <v-expansion-panel v-for="(album, index) in artist.albums" :key="index" :title="album.title" :text="album.producedBy" bg-color="#ee0979" class="font-weight-bold"></v-expansion-panel>
       </v-expansion-panels>
-      <v-img :src="artist.image" class="workspaces d-flex align-center justify-center" style="max-width: 400px; border-radius: 15px; margin: 10px auto auto;"></v-img>
+      <v-img :src="artist.image" class="workspaces d-flex align-center justify-center elevation-24" style="max-width: 400px; border-radius: 15px; margin: 10px auto auto;"></v-img>
       <v-card-subtitle class="font-weight-bold d-flex justify-center">{{ artist.name }} Photo</v-card-subtitle>
       <v-row class="d-flex mb-4 ml-4">
-        <v-btn @click="playAudio(artist.audioUrl)" :ripple="true" elevation="24" rounded="lg" color="#ee0979" class="mx-2">PLAY TRACK</v-btn>
+        <v-btn @click="playAudio(artist.audioUrl)" :ripple="true" elevation="24" rounded="lg" color="#ff004d" class="mx-2">PLAY TRACK</v-btn>
         <v-btn @click="stopAudio" color="#ff6a00" :ripple="true" elevation="24" rounded="lg" class="mx-2">STOP TRACK</v-btn>
       </v-row>
     </v-card>
@@ -144,7 +146,8 @@ export default defineComponent({
       artistsSlovakia: [
         {
           name: "Luca Brassi10x",
-          musicProfileUrl: "https://music.apple.com/sk/artist/luca-brassi10x/1510257533",
+          musicProfileAppleMusic: "https://music.apple.com/sk/artist/luca-brassi10x/1510257533",
+          musicProfileSpotify: "https://open.spotify.com/artist/33ngpBQcfq53FgLhpBDt8i",
           description: "Luka Mašulovič, known mainly by his artist name Luca Brassi, Luca Brssi or Luca Brassi10x, is a Slovak rapper born on 14 December 1994. He started his music career with a feat on Tisci's track \"LV Vačky\" in January 2020. A few months later, Luca releases his first single \"Deep Narco Shit\". In his career Luca Brassi managed to collaborate with people like Yzomandias, NikTendo, Dame, Konex, CA$HANOVA BULHAR, Pil C and many more. Luca Brassi10x is one of the rappers who should own the next few years. He is young, talented and knows how to impress. Besides, he is also considered \"his own\" by artists like Dame or Separ, so he seems to be working hard, otherwise such \"heavyweights\" of Slovak rap wouldn't have taken him in their midst. Last time he made his presence known on Nik Tenda's EP in the track tempo, where Cashanova Bulhar also appeared.",
           albums: [
             { title: "mamaididit", producedBy: "Produced by: Facefront x LUJA" },
@@ -153,10 +156,13 @@ export default defineComponent({
           ],
           image: "IMG_6567.PNG",
           audioUrl: "/public/audio/Lucabrassi10x - Nikdy ma mať nebudú.mp3",
+          color_1: '#ff004d',
+          color_2: 'green',
         },
         {
           name: "guapanova",
-          musicProfileUrl: "https://music.apple.com/sk/artist/guapanova/1457449860",
+          musicProfileAppleMusic: "https://music.apple.com/sk/artist/guapanova/1457449860",
+          musicProfileSpotify: "https://open.spotify.com/artist/3cKe8c7z8w2nyYsaVKWJaC",
           description: "Guapanova (formerly known as TVRNFLX), real name Jakub Smieška, is a member of the ConspiracyFlat Studio label. He comes from Nitra and his first song is Wuala, whose music video was released on the Comebackgang YouTube channel.",
           albums: [
             { title: "Album Deluzia", producedBy: "Produced by: Saimo" },
@@ -165,10 +171,13 @@ export default defineComponent({
           ],
           image: "DeluziaCover.png",
           audioUrl: "/public/audio/Guapanova-STREETS.mp3",
+          color_1: '#ff004d',
+          color_2: 'green',
         },
         {
           name: "RAYYY P",
-          musicProfileUrl: "https://music.apple.com/sk/artist/rayyy-p/1718396296",
+          musicProfileAppleMusic: "https://music.apple.com/sk/artist/rayyy-p/1718396296",
+          musicProfileSpotify: "https://open.spotify.com/artist/3Ubk6CPpRg4eDsiqK9b3Kl",
           description: "RAYYY P is a rapper, his real name is Jakub Hudec and we are make music together. I am his producer.",
           albums: [
             { title: "Album Mama Dala Peniaze Otec Zaplatil Fame II", producedBy: "Produced by: Majkyyy (me)" },
@@ -177,12 +186,15 @@ export default defineComponent({
           ],
           image: "rayyyp.JPG",
           audioUrl: "/public/audio/Mama Dala Peniaze_RAYYY P.mp3",
+          color_1: '#ff004d',
+          color_2: 'green',
         }
       ],
       artistsCzech: [
         {
           name: "Yzomandias",
-          musicProfileUrl: "https://music.apple.com/sk/artist/yzomandias/1074387486",
+          musicProfileAppleMusic: "https://music.apple.com/sk/artist/yzomandias/1074387486",
+          musicProfileSpotify: "https://open.spotify.com/artist/721o1Z0J6jQupyzLt9RnEk",
           description: "Yzomandias (real name Jakub Vlček; * 21 March 1991, Karlovy Vary) is a Czech rapper. He formed the group Milion+. He started making music 16 years ago. Yzomandias was a member of the Czech group Yzo Empire. He releases his latest albums under the label Milion+ (M+). Yzomandias is my most favourite rapper.",
           albums: [
             { title: "Milion+ Entertainment Album KML (Krtek Money Life)", producedBy: "Produced by: Konex" },
@@ -191,10 +203,13 @@ export default defineComponent({
           ],
           image: "yzomandias-7.png",
           audioUrl: "/public/audio/Gremlin - P T K, Yzomandias.mp3",
+          color_1: '#ff004d',
+          color_2: 'green',
         },
         {
           name: "Nik Tendo",
-          musicProfileUrl: "https://music.apple.com/sk/artist/nik-tendo/1081723687",
+          musicProfileAppleMusic: "https://music.apple.com/sk/artist/nik-tendo/1081723687",
+          musicProfileSpotify: "https://open.spotify.com/artist/6gvVFtkTV4OCyQSCzGgU1h",
           description: "Dominik Citta, better known by his stage name Nik Tendo, is a Czech rapper recording for Milion+ Entertainment. He has released albums: Goldkid (2017), GoldCigo (2018), 7 (2018), Fatamorgana (2019), Restart & Lunazar (2020), Jsem v pohodě, sem v prdeli (2021), Kruhy & Vlny (2022, with Yzomandias), *PATTERN* (2023, with NobodyListen) and V gastru nejsou lidi (2024), and has also collaborated on the label's compilation albums Milion+ Krtek Money Life (2018) and Krtek Forever (2023). He has also released several EPs, including 777 (2024) and Game1 (2024, with Ben Cristovao).",
           albums: [
             { title: "Album *PATTERN*", producedBy: "Produced by: NobodyListen" },
@@ -203,18 +218,23 @@ export default defineComponent({
           ],
           image: "niko.jpg",
           audioUrl: "/public/audio/Bílá Černá - Nik Tendo.mp3",
+          color_1: '#ff004d',
+          color_2: 'green',
         },
         {
           name: "Viktor Sheen",
-          musicProfileUrl: "https://music.apple.com/sk/artist/viktor-sheen/882854586",
+          musicProfileAppleMusic: "https://music.apple.com/sk/artist/viktor-sheen/882854586",
+          musicProfileSpotify: "https://open.spotify.com/artist/4cG43cUBRJWWDsRh4SW48i",
           description: "Viktor Sheen, born Viktor Dundich on August 15, 1993, in Almaty, Kazakhstan, is a Czech rapper known for his work in hip hop, trap, and pop music. He began his career in 2008 and has since released several studio albums independently, with support from Warner Music Czech Republic. His most recent album was released on November 8, 2024. Viktor Sheen has achieved significant success, with some of his albums earning multiple platinum certifications in the Czech Republic. He is also a father to three daughters born in 2019, 2021, and 2024.",
           albums: [
             { title: "Album Impostor Syndrom", producedBy: "Produced by: Viktor Sheen" },
             { title: "Album ROADTRIP (feat. Calin)", producedBy: "Produced by: Konex" },
-            { title: "Černobílej svet", producedBy: "Produced by: Decky Beats" }
+            { title: "Album Černobílej svet", producedBy: "Produced by: Decky Beats" }
           ],
           image: "Viktor_Sheen.jpg",
           audioUrl: "/public/audio/Máta - Viktor Sheen.mp3",
+          color_1: '#ff004d',
+          color_2: 'green',
         }
       ],
       tableHeaders: [
