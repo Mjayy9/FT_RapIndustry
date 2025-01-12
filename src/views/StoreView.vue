@@ -24,7 +24,7 @@
   <v-container v-for="(beat, index) in beatDetails" :key="index" class="d-flex h-full justify-center">
     <v-card class="w-75">
       <v-card-title class="titles font-weight-bold">{{ beat.title }}</v-card-title>
-      <v-card-subtitle class="font-weight-bold d-flex"> Beat Details </v-card-subtitle>
+      <v-card-subtitle class="font-weight-bold d-flex">Beat Details</v-card-subtitle>
       <v-container class="d-flex px-0">
         <v-expansion-panels class="custom-panel mb-2">
           <v-expansion-panel v-for="(detail, id) in beat.details" :key="id" :title="detail.title" :text="detail.description" bg-color="#ff004d" class="font-weight-bold"></v-expansion-panel>
@@ -33,16 +33,27 @@
       <v-row class="d-flex mb-4 ml-4">
         <v-btn @click="playAudio(beat.audioUrl)" :ripple="true" elevation="24" rounded="lg" color="#ff004d" class="mx-2">PLAY TRACK</v-btn>
         <v-btn @click="stopAudio" color="#ff6a00" :ripple="true" elevation="24" rounded="lg" class="mx-2">STOP TRACK</v-btn>
-        <v-btn @click="" :ripple="true" elevation="24" rounded="lg" color="green" class="mx-2">ADD TO CART</v-btn>
-        <v-btn @click="" color="primary" :ripple="true" elevation="24" rounded="lg" class="mx-2">VIEW CART</v-btn>
+        <v-btn :ripple="true" class="mx-2" color="green" elevation="24" rounded="lg" @click="addToCart(beat)">ADD TO CART</v-btn>
       </v-row>
     </v-card>
   </v-container>
-
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
+import { useCartStore } from '@/stores/counter.ts';
+import router from "@/router";
+
+interface BeatDetail {
+  title: string;
+  description: string;
+}
+
+interface Beat {
+  title: string;
+  audioUrl: string;
+  details: BeatDetail[];
+}
 
 export default defineComponent({
   name: "Store",
@@ -56,7 +67,7 @@ export default defineComponent({
           details: [
             { title: "BPM", description: "156 bpm" },
             { title: "Scale", description: "D Minor Scale" },
-            { title: "Price", description: "100€" }
+            { title: "Price", description: "100" },
           ],
         },
         {
@@ -65,7 +76,7 @@ export default defineComponent({
           details: [
             { title: "BPM", description: "160 bpm" },
             { title: "Scale", description: "C# Minor Scale" },
-            { title: "Price", description: "100€" }
+            { title: "Price", description: "100" },
           ],
         },
         {
@@ -74,7 +85,7 @@ export default defineComponent({
           details: [
             { title: "BPM", description: "123 bpm" },
             { title: "Scale", description: "D Minor Scale" },
-            { title: "Price", description: "50€" }
+            { title: "Price", description: "50" },
           ],
         },
         {
@@ -83,7 +94,7 @@ export default defineComponent({
           details: [
             { title: "BPM", description: "87 bpm" },
             { title: "Scale", description: "A Minor Scale" },
-            { title: "Price", description: "80€" }
+            { title: "Price", description: "80" },
           ],
         },
         {
@@ -92,7 +103,7 @@ export default defineComponent({
           details: [
             { title: "BPM", description: "160 bpm" },
             { title: "Scale", description: "C Minor Scale" },
-            { title: "Price", description: "60€" }
+            { title: "Price", description: "60" },
           ],
         },
         {
@@ -101,7 +112,7 @@ export default defineComponent({
           details: [
             { title: "BPM", description: "152 bpm" },
             { title: "Scale", description: "F# Minor Scale" },
-            { title: "Price", description: "70€" }
+            { title: "Price", description: "70" },
           ],
         },
         {
@@ -110,7 +121,7 @@ export default defineComponent({
           details: [
             { title: "BPM", description: "130 bpm" },
             { title: "Scale", description: "F Minor Scale" },
-            { title: "Price", description: "80€" }
+            { title: "Price", description: "80" },
           ],
         },
         {
@@ -119,7 +130,7 @@ export default defineComponent({
           details: [
             { title: "BPM", description: "154 bpm" },
             { title: "Scale", description: "D# Minor Scale" },
-            { title: "Price", description: "100€" }
+            { title: "Price", description: "100" },
           ],
         },
         {
@@ -128,7 +139,7 @@ export default defineComponent({
           details: [
             { title: "BPM", description: "137 bpm" },
             { title: "Scale", description: "D# Minor Scale" },
-            { title: "Price", description: "80€" }
+            { title: "Price", description: "80" },
           ],
         },
         {
@@ -137,10 +148,10 @@ export default defineComponent({
           details: [
             { title: "BPM", description: "170 bpm" },
             { title: "Scale", description: "D Minor Scale" },
-            { title: "Price", description: "70€" }
+            { title: "Price", description: "70" },
           ],
         },
-      ],
+      ] as Beat[], // Explicitly specify the type here
     };
   },
   methods: {
@@ -157,6 +168,16 @@ export default defineComponent({
         this.currentAudio.currentTime = 0;
       }
     },
+    addToCart(beat: Beat) {
+      const cartStore = useCartStore();
+      router.push("/cart");
+      cartStore.addToCart({
+        id: beat.title, // Identifikátor produktu
+        name: beat.title, // Názov produktu
+        price: parseFloat(beat.details.find(detail => detail.title === "Price")?.description || "0"), // Cena produktu
+      });
+    },
   },
-})
+});
 </script>
+

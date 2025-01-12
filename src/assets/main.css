@@ -79,5 +79,10 @@ body{
     width: calc(100% - 32px);
 }
 
+.formular{
+    display: flex;
+    border-radius: 10px;
+}
+
 
 
