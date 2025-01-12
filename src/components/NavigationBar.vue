@@ -15,6 +15,7 @@ export default defineComponent({
           <v-tab to="/rappers_and_producers">Rappers and Producers</v-tab>
           <v-tab to="/store">Store</v-tab>
           <v-tab to="/contact">Contact</v-tab>
+          <v-tab to="/about">About Me</v-tab>
         </v-tabs>
       </v-app-bar>
     </v-container>

@@ -9,7 +9,7 @@ export default defineComponent({
 <template>
   <v-footer class="footer opacity-80 pt-0 pb-0 d-flex align-center" app>
     <v-container class="pt-0 pb-0">
-      <p class="d-flex"> © 2025 </p>
+      <p class="d-flex"> © 2025. All Rights reserved </p>
     </v-container>
     <v-container class="pt-0 pb-0">
       <p class="d-flex justify-center"> Producer name Majkyyy </p>

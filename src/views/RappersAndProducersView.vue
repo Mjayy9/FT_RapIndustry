@@ -48,9 +48,11 @@
       <v-btn :href="artist.musicProfileSpotify" target="_blank" rel="noopener noreferrer" prepend-icon="mdi-spotify" class="text-decoration-none ml-3 font-weight-bold" :color="artist.color_2" outlined> Spotify Profile </v-btn>
       <v-card-text>{{ artist.description }}</v-card-text>
       <v-card-subtitle class="font-weight-bold d-flex justify-center">{{ artist.name }} Albums/Tracks</v-card-subtitle>
-      <v-expansion-panels>
-        <v-expansion-panel v-for="(album, index) in artist.albums" :key="index" :title="album.title" :text="album.producedBy" bg-color="#ee0979" class="font-weight-bold"></v-expansion-panel>
-      </v-expansion-panels>
+      <v-container class="d-flex px-0">
+        <v-expansion-panels class="custom-panel mb-2">
+          <v-expansion-panel v-for="(album, index) in artist.albums" :key="index" :title="album.title" :text="album.producedBy" bg-color="#ff004d" class="font-weight-bold"></v-expansion-panel>
+        </v-expansion-panels>
+      </v-container>
       <v-img :src="artist.image" class="workspaces d-flex align-center justify-center elevation-24" style="max-width: 400px; border-radius: 15px; margin: 10px auto auto;"></v-img>
       <v-card-subtitle class="font-weight-bold d-flex justify-center">{{ artist.name }} Photo</v-card-subtitle>
       <v-row class="d-flex mb-4 ml-4">
@@ -107,9 +109,11 @@
       <v-btn :href="artist.musicProfileSpotify" target="_blank" rel="noopener noreferrer" prepend-icon="mdi-spotify" class="text-decoration-none ml-3 font-weight-bold" :color="artist.color_2" outlined> Spotify Profile </v-btn>
       <v-card-text>{{ artist.description }}</v-card-text>
       <v-card-subtitle class="font-weight-bold d-flex justify-center">{{ artist.name }} Albums/Tracks</v-card-subtitle>
-      <v-expansion-panels>
-        <v-expansion-panel v-for="(album, index) in artist.albums" :key="index" :title="album.title" :text="album.producedBy" bg-color="#ee0979" class="font-weight-bold"></v-expansion-panel>
-      </v-expansion-panels>
+      <v-container class="d-flex px-0">
+        <v-expansion-panels class="custom-panel mb-2">
+          <v-expansion-panel v-for="(album, index) in artist.albums" :key="index" :title="album.title" :text="album.producedBy" bg-color="#ff004d" class="font-weight-bold"></v-expansion-panel>
+        </v-expansion-panels>
+      </v-container>
       <v-img :src="artist.image" class="workspaces d-flex align-center justify-center elevation-24" style="max-width: 400px; border-radius: 15px; margin: 10px auto auto;"></v-img>
       <v-card-subtitle class="font-weight-bold d-flex justify-center">{{ artist.name }} Photo</v-card-subtitle>
       <v-row class="d-flex mb-4 ml-4">
@@ -152,10 +156,10 @@ export default defineComponent({
           albums: [
             { title: "mamaididit", producedBy: "Produced by: Facefront x LUJA" },
             { title: "Mladý ale plný", producedBy: "Produced by: Tristan Hoodrich" },
-            { title: "Nikdy ma mať nebudú", producedBy: "Produced by: Mjay Beatz" }
+            { title: "Album Ghetto Maradona", producedBy: "Produced by: tristan Hoodrich" }
           ],
           image: "IMG_6567.PNG",
-          audioUrl: "/public/audio/Lucabrassi10x - Nikdy ma mať nebudú.mp3",
+          audioUrl: "/public/audio/Hore Dole - Luca Brassi10x.mp3",
           color_1: '#ff004d',
           color_2: 'green',
         },

@@ -73,5 +73,11 @@ body{
     margin-right: 16px;
 }
 
+.custom-panel {
+    margin-left: 16px;
+    margin-right: 16px;
+    width: calc(100% - 32px);
+}
+
 
 

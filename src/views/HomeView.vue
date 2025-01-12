@@ -52,7 +52,7 @@ export default {
           text: "So I started to learn how to make beats in LMMS and at first it was very hard but over time I made some beats in that program as well. But there was one major problem and that was that it was possible to make music in that program, but it was pretty bad to do the master and the overall arrangement. That's why I changed LMMS for FL Studio, which is used by the most famous producers and it's a really brilliant program in which you can do amazing things.",
           additionalText: "We even have some beats together and we did a beat for the rapper RuckFiso and it was great, I did the melody and he did the drums.",
           imgSrc: "FL Studio Logo + Text.jpeg",
-          imgClass: "fl ml-md-16 mb-5 elevation-24"
+          imgClass: "mt-5 ml-5 mr-5 mb-5 elevation-24 d-flex justify-center"
         }
       ],
       images: [
@@ -61,6 +61,6 @@ export default {
         { src: "IMG_2684.JPG" }
       ]
     };
-  }
+  },
 };
 </script>

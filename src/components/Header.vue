@@ -14,7 +14,3 @@ export default defineComponent({
     <link rel="icon" href="public/i.png" type="image/x-icon">
   </head>
 </template>
-
-<style scoped>
-
-</style>
