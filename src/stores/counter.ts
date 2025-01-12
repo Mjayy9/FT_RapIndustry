@@ -8,13 +8,13 @@ interface Product {
 
 export const useCartStore = defineStore('cart', {
   state: () => ({
-    items: [] as Product[], // pole položiek v košíku
+    items: [] as Product[],
   }),
   actions: {
     addToCart(product: Product) {
       const itemInCart = this.items.find((item) => item.id === product.id);
       if (itemInCart) {
-        this.items.push(product); // Produkt sa len pridá, ak už v košíku nie je
+        this.items.push(product);
       } else {
         this.items.push(product);
       }
@@ -31,22 +31,6 @@ export const useCartStore = defineStore('cart', {
     saveCartToLocalStorage() {
       localStorage.setItem('cartItems', JSON.stringify(this.items));
     },
-    loadCartFromLocalStorage() {
-      const cartJson = localStorage.getItem('cartItems');
-      if (cartJson) {
-        try {
-          const cartData = JSON.parse(cartJson);
-          if (Array.isArray(cartData)) {
-            this.items = cartData;
-          }
-        } catch (e) {
-          console.error('Chyba pri načítaní košíka z localStorage:', e);
-        }
-      }
-    },
-    addFromVueStore(product: Product) { // Pridaná akcia pre zobrazenie produktov z Vue komponenty
-      this.addToCart(product);
-    }
   },
   getters: {
     totalPrice: (state) => {

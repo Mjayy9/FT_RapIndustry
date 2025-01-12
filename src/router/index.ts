@@ -6,6 +6,7 @@ import StoreView from "@/views/StoreView.vue";
 import Cart from "@/components/Cart.vue";
 import ContactView from "@/views/ContactView.vue";
 import ThankYouPage from "@/views/ThankYouPage.vue";
+import NotFoundView from "@/views/NotFoundView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/thankyoupage',
       name: 'thankyoupage',
       component: ThankYouPage,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'notfound',
+      component: NotFoundView,
     },
     {
       path: '/about',

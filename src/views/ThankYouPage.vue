@@ -1,37 +1,42 @@
 <template>
-  <div class="thank-you-container">
-    <h1>Thank You for Your Order!</h1>
-    <br>
-    <p>Your order has been successfully placed. Below are the details of your order:</p>
-    <br>
+  <v-container class="thank-you-container d-flex flex-column align-center justify-center py-10">
+    <v-card elevation="4" class="pa-6" max-width="600">
+      <v-card-title class="titles text-h5 font-weight-bold justify-center"> Thank You for Your Order! </v-card-title>
 
-    <div class="order-summary">
-      <h2>Ordered Products:</h2>
-      <br>
-      <div v-if="cartItems.length === 0">
-        <p>No products ordered.</p>
-      </div>
-      <div v-else>
-        <ul>
-          <li v-for="item in cartItems" :key="item.id" class="order-item">
-            <span>{{ item.name }} - €{{ item.price }}</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <br>
-    <div class="total-price">
-      <br>
-      <h3>Total Price: {{ totalPrice.toFixed(2) }} €</h3>
-    </div>
-    <br>
-    <button @click="goBackHome" class="go-home-button">Go Back to Store</button>
-  </div>
+      <v-card-text>
+        <br>
+        <p> All informations will be available in your email. </p><br>
+        <p class="text-center"> Your order has been successfully received. Below are the details of your order:</p>
+        <div class="order-summary mt-5">
+          <h2 class="text-h6 font-weight-bold titles">Ordered Products:</h2>
+          <div v-if="cartItems.length === 0" class="mt-3">
+            <p>No products ordered.</p>
+          </div>
+          <v-list v-else>
+            <v-list-item v-for="item in cartItems" :key="item.id" class="order-item">
+              <v-list-item-title>{{ item.name }}</v-list-item-title>
+              <v-list-item-subtitle>€{{ item.price }}</v-list-item-subtitle>
+            </v-list-item>
+          </v-list>
+        </div>
+
+        <div class="total-price mt-5">
+          <h3 class="text-h6 font-weight-bold">
+            Total Price: €{{ totalPrice.toFixed(2) }}
+          </h3>
+        </div>
+      </v-card-text>
+
+      <v-card-actions class="justify-center mt-5">
+        <v-btn @click="goBackHome" color="primary" class="font-weight-bold"> Go Back to Store </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-container>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { useCartStore } from '@/stores/counter.ts';
+import { defineComponent, computed } from 'vue';
+import { useCartStore } from '@/stores/counter';
 import { useRouter } from 'vue-router';
 
 export default defineComponent({
@@ -40,10 +45,12 @@ export default defineComponent({
     const cartStore = useCartStore();
     const router = useRouter();
 
-    const cartItems = cartStore.items; // Prístup k položkám zo store
-    const totalPrice = cartStore.totalPrice; // Použitie getteru pre výpočet ceny
+    // Using computed properties for reactivity
+    const cartItems = computed(() => cartStore.items);
+    const totalPrice = computed(() => cartStore.totalPrice);
 
     const goBackHome = () => {
+      cartStore.clearCart();
       router.push("/store");
     };
 
@@ -55,3 +62,5 @@ export default defineComponent({
   },
 });
 </script>
+
+
