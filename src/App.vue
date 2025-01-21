@@ -9,6 +9,8 @@
   </v-app>
 </template>
 
+
+
 <script>
 import Header from "@/components/Header.vue";
 import NavigationBar from "@/components/NavigationBar.vue";
